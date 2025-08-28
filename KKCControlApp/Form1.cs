@@ -232,7 +232,7 @@ namespace KKCControlApp
                         {
                             this.BeginInvoke(new Action(() =>
                             {
-                                AppendLog("Alındı: " + line);
+                                //AppendLog("Alındı: " + line);
                                 ParseAndUpdateLed(line); 
 
                                 if (line.Contains("Current Time (UTC"))
@@ -269,7 +269,7 @@ namespace KKCControlApp
                         }
                         else
                         {
-                            AppendLog("Alındı: " + line);
+                            //AppendLog("Alındı: " + line);
                             ParseAndUpdateLed(line);
                         }
                     }

@@ -82,8 +82,6 @@
             numSouth = new NumericUpDown();
             numNorth = new NumericUpDown();
             tabTimeDate = new TabPage();
-            label2 = new Label();
-            lblTime = new Label();
             lblTimeZone = new Label();
             btnLearnTZ = new Button();
             lblDate = new Label();
@@ -102,6 +100,8 @@
             btnPhaseAllGroupInfo = new Button();
             btnSigInfo = new Button();
             cmbSig = new ComboBox();
+            label2 = new Label();
+            lblTime = new Label();
             statusStrip1 = new StatusStrip();
             lblStatus = new ToolStripStatusLabel();
             splitContainer1 = new SplitContainer();
@@ -135,6 +135,7 @@
             groupBox1.SuspendLayout();
             statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             SuspendLayout();
@@ -668,8 +669,6 @@
             // 
             // tabTimeDate
             // 
-            tabTimeDate.Controls.Add(label2);
-            tabTimeDate.Controls.Add(lblTime);
             tabTimeDate.Controls.Add(lblTimeZone);
             tabTimeDate.Controls.Add(btnLearnTZ);
             tabTimeDate.Controls.Add(lblDate);
@@ -692,31 +691,11 @@
             tabTimeDate.Text = "Time / Date";
             tabTimeDate.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11.5F);
-            label2.Location = new Point(46, 228);
-            label2.Name = "label2";
-            label2.Size = new Size(133, 28);
-            label2.TabIndex = 17;
-            label2.Text = "Current Time: ";
-            // 
-            // lblTime
-            // 
-            lblTime.AutoSize = true;
-            lblTime.Font = new Font("Segoe UI", 18F);
-            lblTime.Location = new Point(185, 221);
-            lblTime.Name = "lblTime";
-            lblTime.Size = new Size(128, 41);
-            lblTime.TabIndex = 6;
-            lblTime.Text = "00:00:00";
-            // 
             // lblTimeZone
             // 
             lblTimeZone.AutoSize = true;
             lblTimeZone.Font = new Font("Segoe UI", 18F);
-            lblTimeZone.Location = new Point(217, 377);
+            lblTimeZone.Location = new Point(310, 302);
             lblTimeZone.Name = "lblTimeZone";
             lblTimeZone.Size = new Size(81, 41);
             lblTimeZone.TabIndex = 15;
@@ -724,7 +703,7 @@
             // 
             // btnLearnTZ
             // 
-            btnLearnTZ.Location = new Point(37, 375);
+            btnLearnTZ.Location = new Point(130, 300);
             btnLearnTZ.Name = "btnLearnTZ";
             btnLearnTZ.Size = new Size(142, 48);
             btnLearnTZ.TabIndex = 16;
@@ -735,7 +714,7 @@
             // 
             lblDate.AutoSize = true;
             lblDate.Font = new Font("Segoe UI", 18F);
-            lblDate.Location = new Point(185, 294);
+            lblDate.Location = new Point(278, 219);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(138, 41);
             lblDate.TabIndex = 13;
@@ -743,7 +722,7 @@
             // 
             // btnLearnD
             // 
-            btnLearnD.Location = new Point(37, 292);
+            btnLearnD.Location = new Point(130, 217);
             btnLearnD.Name = "btnLearnD";
             btnLearnD.Size = new Size(142, 48);
             btnLearnD.TabIndex = 14;
@@ -883,6 +862,26 @@
             cmbSig.Size = new Size(151, 28);
             cmbSig.TabIndex = 15;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.5F);
+            label2.Location = new Point(17, 78);
+            label2.Name = "label2";
+            label2.Size = new Size(133, 28);
+            label2.TabIndex = 17;
+            label2.Text = "Current Time: ";
+            // 
+            // lblTime
+            // 
+            lblTime.AutoSize = true;
+            lblTime.Font = new Font("Segoe UI", 18F);
+            lblTime.Location = new Point(156, 71);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(128, 41);
+            lblTime.TabIndex = 6;
+            lblTime.Text = "00:00:00";
+            // 
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
@@ -909,7 +908,9 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.BackColor = Color.WhiteSmoke;
+            splitContainer1.Panel1.BackColor = SystemColors.Control;
+            splitContainer1.Panel1.Controls.Add(label2);
+            splitContainer1.Panel1.Controls.Add(lblTime);
             // 
             // splitContainer1.Panel2
             // 
@@ -984,6 +985,8 @@
             groupBox1.ResumeLayout(false);
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
