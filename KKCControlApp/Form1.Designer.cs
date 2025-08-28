@@ -47,7 +47,6 @@
             btnPhaseQuery = new Button();
             tabMain = new TabControl();
             tabPhase = new TabPage();
-            label9 = new Label();
             groupBox3 = new GroupBox();
             pbEastGreen = new PictureBox();
             pbEastYellow = new PictureBox();
@@ -83,6 +82,8 @@
             numSouth = new NumericUpDown();
             numNorth = new NumericUpDown();
             tabTimeDate = new TabPage();
+            btnLearnT = new Button();
+            lblTime = new Label();
             lblTimeZone = new Label();
             btnLearnTZ = new Button();
             lblDate = new Label();
@@ -101,7 +102,6 @@
             btnPhaseAllGroupInfo = new Button();
             btnSigInfo = new Button();
             cmbSig = new ComboBox();
-            lblTime = new Label();
             statusStrip1 = new StatusStrip();
             lblStatus = new ToolStripStatusLabel();
             splitContainer1 = new SplitContainer();
@@ -135,7 +135,6 @@
             groupBox1.SuspendLayout();
             statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             SuspendLayout();
@@ -325,7 +324,6 @@
             // 
             // tabPhase
             // 
-            tabPhase.Controls.Add(label9);
             tabPhase.Controls.Add(groupBox3);
             tabPhase.Location = new Point(4, 29);
             tabPhase.Name = "tabPhase";
@@ -334,15 +332,6 @@
             tabPhase.TabIndex = 0;
             tabPhase.Text = "Phase";
             tabPhase.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(150, 336);
-            label9.Name = "label9";
-            label9.Size = new Size(233, 20);
-            label9.TabIndex = 8;
-            label9.Text = "BURAYA GRUP INFO'LAR GELECEK";
             // 
             // groupBox3
             // 
@@ -679,6 +668,8 @@
             // 
             // tabTimeDate
             // 
+            tabTimeDate.Controls.Add(btnLearnT);
+            tabTimeDate.Controls.Add(lblTime);
             tabTimeDate.Controls.Add(lblTimeZone);
             tabTimeDate.Controls.Add(btnLearnTZ);
             tabTimeDate.Controls.Add(lblDate);
@@ -700,11 +691,30 @@
             tabTimeDate.Text = "Time / Date";
             tabTimeDate.UseVisualStyleBackColor = true;
             // 
+            // btnLearnT
+            // 
+            btnLearnT.Location = new Point(37, 202);
+            btnLearnT.Name = "btnLearnT";
+            btnLearnT.Size = new Size(142, 48);
+            btnLearnT.TabIndex = 17;
+            btnLearnT.Text = "Learn Time";
+            btnLearnT.UseVisualStyleBackColor = true;
+            // 
+            // lblTime
+            // 
+            lblTime.AutoSize = true;
+            lblTime.Font = new Font("Segoe UI", 20F);
+            lblTime.Location = new Point(185, 196);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(142, 46);
+            lblTime.TabIndex = 6;
+            lblTime.Text = "00:00:00";
+            // 
             // lblTimeZone
             // 
             lblTimeZone.AutoSize = true;
             lblTimeZone.Font = new Font("Segoe UI", 20F);
-            lblTimeZone.Location = new Point(217, 297);
+            lblTimeZone.Location = new Point(217, 377);
             lblTimeZone.Name = "lblTimeZone";
             lblTimeZone.Size = new Size(38, 46);
             lblTimeZone.TabIndex = 15;
@@ -712,7 +722,7 @@
             // 
             // btnLearnTZ
             // 
-            btnLearnTZ.Location = new Point(37, 295);
+            btnLearnTZ.Location = new Point(37, 375);
             btnLearnTZ.Name = "btnLearnTZ";
             btnLearnTZ.Size = new Size(142, 48);
             btnLearnTZ.TabIndex = 16;
@@ -723,7 +733,7 @@
             // 
             lblDate.AutoSize = true;
             lblDate.Font = new Font("Segoe UI", 20F);
-            lblDate.Location = new Point(185, 214);
+            lblDate.Location = new Point(185, 294);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(142, 46);
             lblDate.TabIndex = 13;
@@ -731,7 +741,7 @@
             // 
             // btnLearnD
             // 
-            btnLearnD.Location = new Point(37, 212);
+            btnLearnD.Location = new Point(37, 292);
             btnLearnD.Name = "btnLearnD";
             btnLearnD.Size = new Size(142, 48);
             btnLearnD.TabIndex = 14;
@@ -871,16 +881,6 @@
             cmbSig.Size = new Size(151, 28);
             cmbSig.TabIndex = 15;
             // 
-            // lblTime
-            // 
-            lblTime.AutoSize = true;
-            lblTime.Font = new Font("Segoe UI", 20F);
-            lblTime.Location = new Point(78, 53);
-            lblTime.Name = "lblTime";
-            lblTime.Size = new Size(142, 46);
-            lblTime.TabIndex = 6;
-            lblTime.Text = "00:00:00";
-            // 
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
@@ -908,7 +908,6 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = Color.WhiteSmoke;
-            splitContainer1.Panel1.Controls.Add(lblTime);
             // 
             // splitContainer1.Panel2
             // 
@@ -957,7 +956,6 @@
             grpQuick.PerformLayout();
             tabMain.ResumeLayout(false);
             tabPhase.ResumeLayout(false);
-            tabPhase.PerformLayout();
             groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbEastGreen).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbEastYellow).EndInit();
@@ -984,8 +982,6 @@
             groupBox1.ResumeLayout(false);
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
-            splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
@@ -1028,7 +1024,6 @@
         private Label label4;
         private Label label3;
         private GroupBox groupBox3;
-        private Label label9;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel lblStatus;
         private TextBox atxtRawCmd;
@@ -1075,5 +1070,6 @@
         private PictureBox pbSouthGreen;
         private PictureBox pbSouthYellow;
         private PictureBox pbSouthRed;
+        private Button btnLearnT;
     }
 }

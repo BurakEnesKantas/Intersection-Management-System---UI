@@ -9,7 +9,7 @@ namespace KKCControlApp
     public partial class Form1 : Form
     {
         private SerialPort serialPort1;
-        private string receivedDataBuffer = ""; // BUFFER EKLE
+        private string receivedDataBuffer = "";
 
         public Form1()
         {
@@ -34,7 +34,7 @@ namespace KKCControlApp
             btnClearLog.Click += btnClearLog_Click;
             btnSendRaw.Click += btnSendRaw_Click;
 
-            // Phase butonları - GUI'de gördüğüm butonlara göre
+            // Phase butonları
             btnPhaseNorth.Click += (s, e) => SendCommand("PM=1");
             btnPhaseSouth.Click += (s, e) => SendCommand("PM=2");
             btnPhaseEast.Click += (s, e) => SendCommand("PM=3");
@@ -42,7 +42,7 @@ namespace KKCControlApp
 
 
 
-            // Diğer eksik butonlar için event handler'lar
+            
             if (btnSM != null)
                 btnSM.Click += (s, e) => SendCommand("SM");
 
@@ -75,6 +75,9 @@ namespace KKCControlApp
                 btnSetTime.Click += btnSetTime_Click;
 
             // Learn butonları
+            if (btnLearnT != null)
+                btnLearnT.Click += (s, e) => SendCommand("T?");
+
            if (btnLearnD != null)
                 btnLearnD.Click += (s, e) => SendCommand("D?");
 
@@ -231,12 +234,12 @@ namespace KKCControlApp
                         {
                             this.BeginInvoke(new Action(() =>
                             {
-                                //AppendLog("Alındı: " + line);
-                                ParseAndUpdateLed(line); // LED güncelle
+                                AppendLog("Alındı: " + line);
+                                ParseAndUpdateLed(line); 
 
                                 if (line.Contains("Current Time (UTC"))
                                 {
-                                    // "Current Time (UTC +0): 17:30:58"
+                                    
                                     string[] parts = line.Split(':');
                                     if (parts.Length >= 2)
                                     {
@@ -246,7 +249,7 @@ namespace KKCControlApp
                                 }
                                 else if (line.Contains("Current Date"))
                                 {
-                                    // "Current Date: 23/08/2025"
+                                    
                                     string[] parts = line.Split(':');
                                     if (parts.Length >= 2)
                                     {
@@ -256,7 +259,7 @@ namespace KKCControlApp
                                 }
                                 else if (line.Contains("Current Time Zone"))
                                 {
-                                    // "Current Time Zone: UTC +0"
+                                    
                                     string[] parts = line.Split(':');
                                     if (parts.Length >= 2)
                                     {
@@ -268,7 +271,7 @@ namespace KKCControlApp
                         }
                         else
                         {
-                            //AppendLog("Alındı: " + line);
+                            AppendLog("Alındı: " + line);
                             ParseAndUpdateLed(line);
                         }
                     }
@@ -278,18 +281,18 @@ namespace KKCControlApp
             }
             catch (Exception)
             {
-                // Hataları yoksay
+                
             }
         }
 
         private void ParseAndUpdateLed(string line)
         {
-            // Örnek line: "North Green OFF" veya "South Red ON"
+            
             var parts = line.Split(' ');
             if (parts.Length < 3) return;
 
-            string ledName = parts[0] + " " + parts[1]; // Örn: "North Green"
-            string stateStr = parts[2]; // ON veya OFF
+            string ledName = parts[0] + " " + parts[1];
+            string stateStr = parts[2]; 
 
             bool isOn = stateStr.Equals("ON", StringComparison.OrdinalIgnoreCase);
 
@@ -377,18 +380,18 @@ namespace KKCControlApp
                     txtLog.BeginInvoke(new Action(() =>
                     {
                         txtLog.AppendText(line);
-                        txtLog.ScrollToCaret(); // En alta kaydır
+                        txtLog.ScrollToCaret(); 
                     }));
                 }
                 else
                 {
                     txtLog.AppendText(line);
-                    txtLog.ScrollToCaret(); // En alta kaydır
+                    txtLog.ScrollToCaret(); 
                 }
             }
             catch (Exception)
             {
-                // Log yazma hatası görmezden gel
+                
             }
         }
 
@@ -418,7 +421,7 @@ namespace KKCControlApp
                 {
                     MessageBox.Show("Port bağlı değil!");
                     AppendLog("HATA: Port bağlı değil!");
-                    UpdateControls(false); // UI'yı güncelle
+                    UpdateControls(false); 
                 }
             }
             catch (Exception ex)
@@ -470,6 +473,7 @@ namespace KKCControlApp
             if (btnSetTZ != null) btnSetTZ.Enabled = connected;
             if (btnSetDate != null) btnSetDate.Enabled = connected;
             if (btnSetTime != null) btnSetTime.Enabled = connected;
+            if (btnLearnT != null) btnLearnT.Enabled = connected;
             if (btnLearnD != null) btnLearnD.Enabled = connected;
             if (btnLearnTZ != null) btnLearnTZ.Enabled = connected;
 
@@ -497,23 +501,23 @@ namespace KKCControlApp
             }
             catch (Exception)
             {
-                // Kapanış hatası görmezden gel
+                
             }
             base.OnFormClosing(e);
         }
 
-        // Boş event handler'lar (Designer için)
+        
         private void cmbTimeZone_SelectedIndexChanged(object sender, EventArgs e) { }
         private void button12_Click(object sender, EventArgs e) { }
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e) { }
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e) { }
-        //private void Form1_Load(object sender, EventArgs e) { }
+        
 
         private void btnApplySouth_Click(object sender, EventArgs e)
         {
             try
             {
-                // NumericUpDown kontrollerinden değerleri al
+                
                 if (numSouth != null)
                     SendCommand($"south={numSouth.Value}");
 
@@ -529,7 +533,7 @@ namespace KKCControlApp
         {
             try
             {
-                // NumericUpDown kontrollerinden değerleri al
+                
                 if (numNorth != null)
                     SendCommand($"north={numNorth.Value}");
 
@@ -545,7 +549,7 @@ namespace KKCControlApp
         {
             try
             {
-                // NumericUpDown kontrollerinden değerleri al
+                
                 if (numWest != null)
                     SendCommand($"west={numWest.Value}");
 
@@ -561,7 +565,7 @@ namespace KKCControlApp
         {
             try
             {
-                // NumericUpDown kontrollerinden değerleri al
+                
                 if (numEast != null)
                     SendCommand($"east={numEast.Value}");
 
@@ -577,7 +581,7 @@ namespace KKCControlApp
         {
             try
             {
-                // NumericUpDown kontrollerinden değerleri al
+                
                 if (numTransition != null)
                     SendCommand($"transition={numTransition.Value}");
 
@@ -600,6 +604,11 @@ namespace KKCControlApp
         private void btnResetDelays_Click(object sender, EventArgs e)
         {
             SendCommand("RST Delay");
+            numNorth.Value = 0;
+            numSouth.Value = 0;
+            numWest.Value = 0; 
+            numEast.Value = 0;
+            numTransition.Value = 0;
         }
     }
 }
