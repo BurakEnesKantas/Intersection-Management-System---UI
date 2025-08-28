@@ -35,3 +35,4 @@ C:\Users\burak\source\repos\KKCControlApp\KKCControlApp\bin\Debug\net8.0-windows
 C:\Users\burak\source\repos\KKCControlApp\KKCControlApp\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.IO.Ports.dll
 C:\Users\burak\source\repos\KKCControlApp\KKCControlApp\obj\Debug\net8.0-windows\KKCControlApp.csproj.AssemblyReference.cache
 C:\Users\burak\source\repos\KKCControlApp\KKCControlApp\obj\Debug\net8.0-windows\KKCContr.0B793464.Up2Date
+C:\Users\burak\source\repos\KKCControlApp\KKCControlApp\obj\Debug\net8.0-windows\KKCControlApp.sourcelink.json
