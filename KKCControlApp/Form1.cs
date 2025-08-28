@@ -243,7 +243,7 @@ namespace KKCControlApp
                                     string[] parts = line.Split(':');
                                     if (parts.Length >= 2)
                                     {
-                                        string timeValue = parts[1].Trim() +":" + parts[2].Trim() + ":" + parts[3].Trim(); // 17:30:58 kısmı
+                                        string timeValue = parts[1].Trim() +":" + parts[2].Trim() + ":" + parts[3].Trim(); 
                                         lblTime.Text = timeValue;
                                     }
                                 }
@@ -484,7 +484,7 @@ namespace KKCControlApp
             if (lblStatus != null)
                 lblStatus.Text = connected ? $"Bağlı: {serialPort1.PortName} @{serialPort1.BaudRate}" : "Bağlantı Yok";
 
-            btnConnect.Text = connected ? "Bağlantıyı Kes" : "Bağlan";
+            btnConnect.Text = connected ? "❌ Disconnect" : "🔗 Connect";
         }
 
         // Form kapanırken port'u kapat
@@ -600,8 +600,6 @@ namespace KKCControlApp
                 SendCommand($"SIG={cmbSig.SelectedItem}");
             }
         }
-
-
 
         private void btnResetDelays_Click(object sender, EventArgs e)
         {
