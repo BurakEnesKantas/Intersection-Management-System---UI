@@ -82,7 +82,7 @@
             numSouth = new NumericUpDown();
             numNorth = new NumericUpDown();
             tabTimeDate = new TabPage();
-            btnLearnT = new Button();
+            label2 = new Label();
             lblTime = new Label();
             lblTimeZone = new Label();
             btnLearnTZ = new Button();
@@ -668,7 +668,7 @@
             // 
             // tabTimeDate
             // 
-            tabTimeDate.Controls.Add(btnLearnT);
+            tabTimeDate.Controls.Add(label2);
             tabTimeDate.Controls.Add(lblTime);
             tabTimeDate.Controls.Add(lblTimeZone);
             tabTimeDate.Controls.Add(btnLearnTZ);
@@ -683,6 +683,7 @@
             tabTimeDate.Controls.Add(cmbTimeZone);
             tabTimeDate.Controls.Add(dtpSetTime);
             tabTimeDate.Controls.Add(dtpSetDate);
+            tabTimeDate.Font = new Font("Segoe UI", 9F);
             tabTimeDate.Location = new Point(4, 29);
             tabTimeDate.Name = "tabTimeDate";
             tabTimeDate.Padding = new Padding(3);
@@ -691,34 +692,35 @@
             tabTimeDate.Text = "Time / Date";
             tabTimeDate.UseVisualStyleBackColor = true;
             // 
-            // btnLearnT
+            // label2
             // 
-            btnLearnT.Location = new Point(37, 202);
-            btnLearnT.Name = "btnLearnT";
-            btnLearnT.Size = new Size(142, 48);
-            btnLearnT.TabIndex = 17;
-            btnLearnT.Text = "Learn Time";
-            btnLearnT.UseVisualStyleBackColor = true;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.5F);
+            label2.Location = new Point(46, 228);
+            label2.Name = "label2";
+            label2.Size = new Size(133, 28);
+            label2.TabIndex = 17;
+            label2.Text = "Current Time: ";
             // 
             // lblTime
             // 
             lblTime.AutoSize = true;
-            lblTime.Font = new Font("Segoe UI", 20F);
-            lblTime.Location = new Point(185, 196);
+            lblTime.Font = new Font("Segoe UI", 18F);
+            lblTime.Location = new Point(185, 221);
             lblTime.Name = "lblTime";
-            lblTime.Size = new Size(142, 46);
+            lblTime.Size = new Size(128, 41);
             lblTime.TabIndex = 6;
             lblTime.Text = "00:00:00";
             // 
             // lblTimeZone
             // 
             lblTimeZone.AutoSize = true;
-            lblTimeZone.Font = new Font("Segoe UI", 20F);
+            lblTimeZone.Font = new Font("Segoe UI", 18F);
             lblTimeZone.Location = new Point(217, 377);
             lblTimeZone.Name = "lblTimeZone";
-            lblTimeZone.Size = new Size(38, 46);
+            lblTimeZone.Size = new Size(81, 41);
             lblTimeZone.TabIndex = 15;
-            lblTimeZone.Text = "0";
+            lblTimeZone.Text = "UTC ";
             // 
             // btnLearnTZ
             // 
@@ -732,12 +734,12 @@
             // lblDate
             // 
             lblDate.AutoSize = true;
-            lblDate.Font = new Font("Segoe UI", 20F);
+            lblDate.Font = new Font("Segoe UI", 18F);
             lblDate.Location = new Point(185, 294);
             lblDate.Name = "lblDate";
-            lblDate.Size = new Size(142, 46);
+            lblDate.Size = new Size(138, 41);
             lblDate.TabIndex = 13;
-            lblDate.Text = "00.00.00";
+            lblDate.Text = "00/00/00";
             // 
             // btnLearnD
             // 
@@ -1070,6 +1072,6 @@
         private PictureBox pbSouthGreen;
         private PictureBox pbSouthYellow;
         private PictureBox pbSouthRed;
-        private Button btnLearnT;
+        private Label label2;
     }
 }

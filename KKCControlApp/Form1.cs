@@ -75,10 +75,8 @@ namespace KKCControlApp
                 btnSetTime.Click += btnSetTime_Click;
 
             // Learn butonları
-            if (btnLearnT != null)
-                btnLearnT.Click += (s, e) => SendCommand("T?");
-
-           if (btnLearnD != null)
+            
+            if (btnLearnD != null)
                 btnLearnD.Click += (s, e) => SendCommand("D?");
 
             if (btnLearnTZ != null)
@@ -473,7 +471,6 @@ namespace KKCControlApp
             if (btnSetTZ != null) btnSetTZ.Enabled = connected;
             if (btnSetDate != null) btnSetDate.Enabled = connected;
             if (btnSetTime != null) btnSetTime.Enabled = connected;
-            if (btnLearnT != null) btnLearnT.Enabled = connected;
             if (btnLearnD != null) btnLearnD.Enabled = connected;
             if (btnLearnTZ != null) btnLearnTZ.Enabled = connected;
 
