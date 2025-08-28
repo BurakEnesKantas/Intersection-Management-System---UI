@@ -601,6 +601,8 @@ namespace KKCControlApp
             }
         }
 
+
+
         private void btnResetDelays_Click(object sender, EventArgs e)
         {
             SendCommand("RST Delay");
